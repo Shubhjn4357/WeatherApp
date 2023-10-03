@@ -1,9 +1,10 @@
-import {Data} from "/Weather/city_coordinates.js"
+import {Data} from "../city_coordinates.js"
 const inputField=document.getElementById("Form-capture")
 const copyright=document.getElementById("copyright")
 const WeatherController=document.getElementById("weather-report")
 const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
 const AdWl=()=>{
+        console.log(Data);
         Data.map((i)=>{
         const Element=document.createElement("option");
         Element.classList.add("opt");
