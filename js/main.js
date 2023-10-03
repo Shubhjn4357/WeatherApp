@@ -3,7 +3,6 @@ const inputField=document.getElementById("Form-capture")
 const copyright=document.getElementById("copyright")
 const WeatherController=document.getElementById("weather-report")
 const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
-console.log(Data);
 const AdWl=()=>{
         console.log(Data);
         Data.map((i)=>{
