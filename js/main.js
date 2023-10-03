@@ -17,7 +17,7 @@ inputField.addEventListener("change",async(e)=>{
     const val=e.target.value;
     const id=e.target.selectedOptions[0].id;
     WeatherController.innerHTML=`<div class='loader'></div>`
-    await fetch(`http://www.7timer.info/bin/api.pl?${val}&unit=metric&product=civillight&output=json`)
+    await fetch(`http://www.7timer.info/bin/api.pl?${val}&product=civillight&output=json`)
     .then(res=>await res.json())
     .then(wea=>{
         
