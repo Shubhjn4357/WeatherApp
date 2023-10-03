@@ -1,4 +1,4 @@
-import {Data} from "/Weather/city_coordinates.js"
+import {Data} from "../city_coordinates.js"
 const inputField=document.getElementById("Form-capture")
 const copyright=document.getElementById("copyright")
 const WeatherController=document.getElementById("weather-report")
