@@ -3,6 +3,7 @@ const inputField=document.getElementById("Form-capture")
 const copyright=document.getElementById("copyright")
 const WeatherController=document.getElementById("weather-report")
 const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+console.log(Data);
 const AdWl=()=>{
         Data.map((i)=>{
         const Element=document.createElement("option");
@@ -11,7 +12,7 @@ const AdWl=()=>{
         Element.setAttribute("value",`lon=${i.longitude}&lat=${i.latitude}`)
         Element.setAttribute("id",i.city)
         inputField.appendChild(Element)
-        copyright.innerHTML=`@Copyright ${new Date().getFullYear()}`;
+        copyright.innerHTML=`Copyright ${new Date().getFullYear()}`;
     })
 }
 AdWl()
