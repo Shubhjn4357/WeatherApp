@@ -13,11 +13,12 @@ function Load(){
     })
 }   
 Load()
-inputField.addEventListener("change",(e)=>{
+inputField.addEventListener("change",async(e)=>{
     const val=e.target.value;
     const id=e.target.selectedOptions[0].id;
-    fetch(`http://www.7timer.info/bin/api.pl?${val}&unit=metric&product=civillight&output=json`)
-    .then(res=>res.json())
+    WeatherController.innerHTML=`<div class='loader'></div>`
+    await fetch(`http://www.7timer.info/bin/api.pl?${val}&unit=metric&product=civillight&output=json`)
+    .then(res=>await res.json())
     .then(wea=>{
         
         const date=wea.dataseries[0].date;
