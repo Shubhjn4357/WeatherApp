@@ -1,8 +1,9 @@
-import Data from "../city_coordinates.js"
+import {Data} from "/Weather/city_coordinates.js"
 const inputField=document.getElementById("Form-capture")
+const copyright=document.getElementById("copyright")
 const WeatherController=document.getElementById("weather-report")
-const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-function Load(){
+const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+const AdWl=()=>{
         Data.map((i)=>{
         const Element=document.createElement("option");
         Element.classList.add("opt");
@@ -10,17 +11,18 @@ function Load(){
         Element.setAttribute("value",`lon=${i.longitude}&lat=${i.latitude}`)
         Element.setAttribute("id",i.city)
         inputField.appendChild(Element)
+        copyright.innerHTML=`@Copyright ${new Date().getFullYear()}`;
     })
-}   
-Load()
+}
+AdWl()
+
 inputField.addEventListener("change",async(e)=>{
     const val=e.target.value;
     const id=e.target.selectedOptions[0].id;
-    WeatherController.innerHTML=`<div class='loader'></div>`
-    await fetch(`http://www.7timer.info/bin/api.pl?${val}&product=civillight&output=json`)
-    .then(res=>await res.json())
-    .then(wea=>{
-        
+    try{
+        WeatherController.innerHTML=`<div class=d-center><div class=loader></div></div>`
+        const res=await fetch(`http://www.7timer.info/bin/api.pl?${val}&product=civillight&output=json`)
+        const wea=await res.json();
         const date=wea.dataseries[0].date;
         const year=date.toString().slice(0,4);
         const month=date.toString().slice(4,6);
@@ -55,5 +57,8 @@ inputField.addEventListener("change",async(e)=>{
             
         </div>
         `
-    });
-})
+    }
+    catch(error){
+        console.log(error)
+    }
+});

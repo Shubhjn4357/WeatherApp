@@ -1,4 +1,4 @@
-const Data=[
+export const Data=[
 {
    "latitude": 52.367,
    "longitude": 4.904,
@@ -336,4 +336,3 @@ const Data=[
    "country": "Switzerland"
  }
 ]
-export default Data
