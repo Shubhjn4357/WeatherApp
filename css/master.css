@@ -4,6 +4,12 @@ body {
     background-repeat:no-repeat;
     background-size:cover;
 }
+.scroller{
+    overflow: scroll;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+}
 #copyright{
     padding:0.2rem;
     background:#121212;
