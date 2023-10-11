@@ -30,6 +30,7 @@ inputField.addEventListener("change",async(e)=>{
         d.setDate(currentDate);
         let day = weekday[d.getDay()];
         WeatherController.innerHTML=`
+        <div class='d-flex'> 
         <div class='card'>
             <h2>${id}</h2>
             <h2>${wea.dataseries[0].weather}<span class='text-xl'>Wind ${wea.dataseries[0].wind10m_max} km/h <span class='dot'>•</span>
@@ -39,7 +40,7 @@ inputField.addEventListener("change",async(e)=>{
                 <h1>${wea.dataseries[0].temp2m.max}Deg/C</h1>
             </div>
         </div>
-        <div class='d-flex scrollerr'>    
+        <div class='flex-box'> 
                 ${wea.dataseries.map((x,id)=>{
                     if(id>0){
                         const date=wea.dataseries[id].date;
@@ -49,11 +50,12 @@ inputField.addEventListener("change",async(e)=>{
                         const d = new Date()
                         d.setDate(currentDate);
                         let curday = weekday[d.getDay()];
-                        return `<div class='card d-center flex-col gap-2'><div class='text-xl'>${curday}</div><div>Max:${x.temp2m.max}</div><div>Min:${x.temp2m.min}</div></div>   `
+                        return `<div class='card-sm d-center flex-col gap-2'><div class='text-xl'>${curday}</div><div>Max:${x.temp2m.max}</div><div>Min:${x.temp2m.min}</div></div>   `
                     }
                     return `<span></span>`
                 })}
             
+        </div>
         </div>
         `
     }
